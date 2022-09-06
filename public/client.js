@@ -1,4 +1,4 @@
-const socket=io()
+const socket=io();
 let na;
 let textarea=document.querySelector("#textarea");
 do{
@@ -13,11 +13,11 @@ textarea.addEventListener("keyup",function(e){
 
 function sendMessage(msg)
 {
-    let msg={
+    let msg1={
         user: na,
         message: msg
 
 
-    }
+    };
     appendMessage(msg,"outgoing");
 }
