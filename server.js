@@ -1,5 +1,6 @@
 const express=require('express');
 const app=express();
+const http=require('http').createServer(app);
 
 app.use(express.static(__dirname+ "/public"));
 
@@ -7,6 +8,12 @@ app.get("/",function(req,res){
     res.sendFile(__dirname +"/index.html");
 });
 
-app.listen(3000,function(req,res){
+const io=require("socket.io")(http);
+
+io.on("connection",(socket)=>{
+    console.log("Connected");
+});
+
+http.listen(3000,function(req,res){
     console.log("Server is Running on Port 3000");
 });
